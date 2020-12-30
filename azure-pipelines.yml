@@ -49,8 +49,8 @@ stages:
         python -m venv antenv
         source antenv/bin/activate
         which python
-        echo path
-        echo path | grep pylint
+        echo $path
+        echo $path | grep pylint
         which pylint
         make lint
       workingDirectory: $(projectRoot)
