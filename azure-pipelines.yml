@@ -48,8 +48,10 @@ stages:
     - script: |
         python -m venv antenv
         source antenv/bin/activate
-        which python
-        echo $path
+        export python_path=`which python`
+        export python_version=`which python`
+        echo "$python_path/$python_version/bin"
+        export PATH=$PATH:"$python_path/$python_version/bin"
         echo $path | grep pylint
         which pylint
         make lint
